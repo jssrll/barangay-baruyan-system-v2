@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Barangay Baruyan | Resident Portal</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header" id="mainHeader">
+        <div class="header-top">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <img src="https://ik.imagekit.io/0sf7uub8b/brgy%20baruyan?updatedAt=1774768531825" alt="Barangay Baruyan Logo" class="logo-img">
+                </div>
+                <div class="logo-text">
+                    <h1>Barangay Baruyan</h1>
+                    <span>Calapan City, Oriental Mindoro</span>
+                </div>
+            </div>
+            <button class="menu-btn" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <div class="slide-menu" id="slideMenu">
+            <div class="menu-item" data-tab="login">
+                <i class="fas fa-sign-in-alt"></i>
+                <span>Login</span>
+            </div>
+            <div class="menu-item" data-tab="announcements">
+                <i class="fas fa-bullhorn"></i>
+                <span>Announcements</span>
+            </div>
+            <div class="menu-item" data-tab="documents">
+                <i class="fas fa-file-alt"></i>
+                <span>Request Document</span>
+            </div>
+            <div class="menu-item" data-tab="myqr">
+                <i class="fas fa-qrcode"></i>
+                <span>My QR Code</span>
+            </div>
+            <div class="menu-item" data-tab="profile">
+                <i class="fas fa-user-circle"></i>
+                <span>My Profile</span>
+            </div>
+        </div>
+        
+        <div class="welcome-section" id="welcomeSection">
+            <h2 id="greetingMessage">Magandang Araw!</h2>
+            <p id="residentNameDisplay">Bisita</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section id="loginTab" class="tab-content">
+            <div class="login-container">
+                <div class="login-card">
+                    <div class="login-header">
+                        <div class="login-avatar">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h2>Resident Login</h2>
+                        <p>Ilagay ang iyong numero at password para magpatuloy</p>
+                    </div>
+                    
+                    <form id="loginForm" class="login-form">
+                        <div class="form-group">
+                            <label><i class="fas fa-phone"></i> Contact Number</label>
+                            <input type="tel" id="loginPhone" placeholder="09XXXXXXXXX" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label><i class="fas fa-lock"></i> Password</label>
+                            <input type="password" id="loginPassword" placeholder="••••••••" required>
+                            <button type="button" class="toggle-password" id="togglePassword">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="login-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="rememberMe"> Tandaan ako
+                            </label>
+                            <a href="#" class="forgot-password">Nakalimutan ang password?</a>
+                        </div>
+                        
+                        <button type="submit" class="login-btn">
+                            <i class="fas fa-sign-in-alt"></i> Mag-login
+                        </button>
+                    </form>
+                    
+                    <div class="login-footer">
+                        <p>Walang account? <a href="#" id="showRegisterLink">Mag-register dito</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="registerTab" class="tab-content">
+            <div class="login-container">
+                <div class="login-card">
+                    <div class="login-header">
+                        <div class="login-avatar">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <h2>Mag-register</h2>
+                        <p>Gumawa ng account para ma-access ang mga serbisyo</p>
+                    </div>
+                    
+                    <form id="registerForm" class="login-form">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Buong Pangalan</label>
+                            <input type="text" id="regFullName" placeholder="Hal. Juan Dela Cruz" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label><i class="fas fa-map-pin"></i> Address</label>
+                            <input type="text" id="regAddress" placeholder="Purok, Barangay Baruyan" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label><i class="fas fa-phone"></i> Contact Number</label>
+                            <input type="tel" id="regPhone" placeholder="09XXXXXXXXX" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label><i class="fas fa-calendar"></i> Birthday</label>
+                            <input type="date" id="regBirthday" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label><i class="fas fa-venus-mars"></i> Kasarian</label>
+                            <select id="regGender" required>
+                                <option value="">Pumili...</option>
+                                <option value="Lalaki">Lalaki</option>
+                                <option value="Babae">Babae</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label><i class="fas fa-lock"></i> Password</label>
+                            <input type="password" id="regPassword" placeholder="••••••••" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label><i class="fas fa-lock"></i> Kumpirmahin ang Password</label>
+                            <input type="password" id="regConfirmPassword" placeholder="••••••••" required>
+                        </div>
+                        
+                        <button type="submit" class="login-btn">
+                            <i class="fas fa-user-plus"></i> Mag-register
+                        </button>
+                    </form>
+                    
+                    <div class="login-footer">
+                        <p>May account na? <a href="#" id="showLoginLink">Mag-login dito</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="announcementsTab" class="tab-content">
+            <div class="section-header">
+                <h3><i class="fas fa-bullhorn"></i> Mga Anunsyo</h3>
+                <div class="filter-chips">
+                    <button class="chip active" data-filter="all">Lahat</button>
+                    <button class="chip" data-filter="emergency">Emergency</button>
+                    <button class="chip" data-filter="program">Programa</button>
+                    <button class="chip" data-filter="event">Evento</button>
+                </div>
+            </div>
+            <div class="announcement-list" id="announcementList"></div>
+        </section>
+
+        <section id="documentsTab" class="tab-content">
+            <div class="section-header">
+                <h3><i class="fas fa-file-alt"></i> Humiling ng Dokumento</h3>
+                <p class="subtitle">Pumili ng dokumentong kailangan. Lahat ng dokumento ay <strong>LIBRE</strong>.</p>
+            </div>
+            
+            <div class="doc-search-wrapper">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="docSearchInput" placeholder="Maghanap ng dokumento..." class="doc-search">
+                </div>
+            </div>
+            
+            <div class="document-categories" id="documentCategories"></div>
+
+            <div class="modal-overlay" id="requestModal">
+                <div class="modal">
+                    <div class="modal-header">
+                        <h4 id="modalDocTitle">Barangay Clearance</h4>
+                        <button class="close-modal" id="closeModalBtn"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="documentRequestForm">
+                            <input type="hidden" id="selectedDocument" name="documentType">
+                            
+                            <div class="form-group">
+                                <label>Buong Pangalan</label>
+                                <input type="text" id="fullName" placeholder="Hal. Juan Dela Cruz" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Address</label>
+                                <input type="text" id="address" placeholder="Hal. Purok 3, Barangay Baruyan" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Contact Number</label>
+                                <input type="tel" id="contactNumber" placeholder="09XXXXXXXXX" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Layunin / Purpose</label>
+                                <textarea id="purpose" rows="3" placeholder="Ilagay ang dahilan ng pagkuha ng dokumento"></textarea>
+                            </div>
+                            
+                            <div class="form-note">
+                                <i class="fas fa-info-circle"></i>
+                                <span>Lahat ng dokumento ay <strong>LIBRE</strong> alinsunod sa lokal na ordinansa.</span>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i> Isumite ang Request
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="myqrTab" class="tab-content">
+            <div class="section-header">
+                <h3><i class="fas fa-qrcode"></i> Aking QR Code</h3>
+                <p class="subtitle">I-presenta ito sa barangay hall para sa mabilis na transaksyon</p>
+            </div>
+            
+            <div class="qr-container">
+                <div class="qr-card">
+                    <div class="qr-code-wrapper" id="qrCodeDisplay">
+                        <div class="qr-placeholder">
+                            <i class="fas fa-qrcode"></i>
+                            <p id="qrPlaceholderText">Mag-login para makita ang QR code</p>
+                        </div>
+                    </div>
+                    <div class="resident-info">
+                        <h4 id="qrName">-</h4>
+                        <p id="qrAddress">-</p>
+                        <p id="qrId">-</p>
+                    </div>
+                    <button class="download-qr-btn" id="downloadQrBtn" disabled>
+                        <i class="fas fa-download"></i> I-download ang QR
+                    </button>
+                </div>
+                
+                <div class="qr-instructions">
+                    <h5><i class="fas fa-info-circle"></i> Paano gamitin?</h5>
+                    <ol>
+                        <li>Ipakita ang QR code sa barangay personnel</li>
+                        <li>I-scan nila ito gamit ang kanilang scanner</li>
+                        <li>Awtomatikong lalabas ang iyong profile</li>
+                        <li>Mas mabilis na transaksyon!</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section id="profileTab" class="tab-content">
+            <div class="section-header">
+                <h3><i class="fas fa-user-circle"></i> Aking Profile</h3>
+            </div>
+            
+            <div class="profile-container">
+                <div class="profile-header">
+                    <div class="avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="profile-name-section">
+                        <h4 id="profileName">-</h4>
+                        <span class="badge">Residente</span>
+                    </div>
+                </div>
+                
+                <div class="profile-details">
+                    <div class="detail-item">
+                        <i class="fas fa-map-pin"></i>
+                        <div>
+                            <label>Address</label>
+                            <p id="profileAddress">-</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <label>Contact Number</label>
+                            <p id="profileContact">-</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-calendar"></i>
+                        <div>
+                            <label>Birthday</label>
+                            <p id="profileBirthday">-</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-venus-mars"></i>
+                        <div>
+                            <label>Kasarian</label>
+                            <p id="profileGender">-</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-id-card"></i>
+                        <div>
+                            <label>Resident ID</label>
+                            <p id="profileResidentId">-</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile-actions">
+                    <button class="logout-btn" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i> Mag-logout
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <nav class="bottom-nav" id="bottomNav">
+        <button class="nav-item" data-nav="announcements">
+            <i class="fas fa-bullhorn"></i>
+            <span>Anunsyo</span>
+        </button>
+        <button class="nav-item" data-nav="documents">
+            <i class="fas fa-file-alt"></i>
+            <span>Dokumento</span>
+        </button>
+        <button class="nav-item" data-nav="myqr">
+            <i class="fas fa-qrcode"></i>
+            <span>QR Ko</span>
+        </button>
+        <button class="nav-item" data-nav="profile">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </button>
+    </nav>
+
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Success!</span>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
